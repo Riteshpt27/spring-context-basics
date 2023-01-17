@@ -1,8 +1,14 @@
-package main;
+package beans;
 
+import beans.Parrot;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Person {
+    @Autowired
     private Parrot parrot;
-    private String name;
+    private String name = "Ritesh";
 
     public Parrot getParrot() {
         return parrot;

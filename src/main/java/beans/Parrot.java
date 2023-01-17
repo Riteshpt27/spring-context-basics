@@ -1,11 +1,12 @@
-package main;
+package beans;
 
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Component
 public class Parrot {
-    private String name;
+    private String name = "lily";
 
     public String getName() {
         return name;
