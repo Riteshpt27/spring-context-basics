@@ -6,15 +6,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
-    private final Parrot parrot;
+    private Parrot parrot;
     private String name = "Ritesh";
 
-    @Autowired
-    public Person(Parrot parrot) {
-        this.parrot = parrot;
-    }
     public Parrot getParrot() {
         return parrot;
+    }
+
+    @Autowired
+    public void setParrot(Parrot parrot) {
+        this.parrot = parrot;
     }
 
     public String getName() {
