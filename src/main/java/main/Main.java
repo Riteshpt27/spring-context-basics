@@ -8,17 +8,13 @@ import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
+        var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Parrot x = new Parrot();
-        x.setName("kiki");
+        Parrot parrot = context.getBean(Parrot.class);
+        System.out.println(parrot.getName());
 
-        Supplier<Parrot> parrotSupplier = () -> x;
-
-        context.registerBean("parrot", Parrot.class, parrotSupplier);
-
-        Parrot p = context.getBean(Parrot.class);
-        System.out.println(p);
-        System.out.println(p.getName());
+        Person person = context.getBean(Person.class);
+        System.out.println(person.getName());
+        System.out.println(person.getParrot());
     }
 }
